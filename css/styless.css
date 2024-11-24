@@ -10,8 +10,22 @@
   --cl-light: #f4f4fd;
   --cl-accent: #4d5ae5;
   --cl-hover: #404bbf;
+  --cl-cornflower: #e7e9fc;
+  --cl-black: 0, 0, 0;
+
+  /* card-set */
+  --indent-col: 24px;
+  --indent-row: var(var(--col-gap));
+  --items: 3;
   /* Others */
 }
+/* #region Container */
+.container {
+  max-width: 1158px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+/* #endregion */
 
 /* #region Common */
 h1,
@@ -27,6 +41,8 @@ p {
 ul,
 ol {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -66,12 +82,30 @@ address {
   font-style: normal;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.section {
+  padding: 120px 0;
+}
+
 .section-title {
   font-size: 36px;
   line-height: 111%;
   letter-spacing: 0.02em;
   text-align: center;
   text-transform: capitalize;
+  margin-bottom: 72px;
   color: var(--cl-secondary);
 }
 
@@ -81,19 +115,61 @@ address {
   line-height: 120%;
   letter-spacing: 0.02em;
   color: var(--cl-secondary);
+  margin-bottom: 8px;
 }
 
 /* #endregion */
+/* #region  Card*/
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--indent-col);
+  row-gap: var(--indent-row);
+}
+
+.card-set-item {
+  flex-basis: calc(
+    (100% - var(--indent-col) * (var(--items) - 1)) / var(--items)
+  );
+}
+
+.card-content {
+  padding: 32px 16px;
+}
+/* #endregion */
 
 /* #region Header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--CORNFLOWER, #e7e9fc);
+}
+
+.header-logo {
+  margin-right: 76px;
+}
+.header-nav-list {
+  display: inline-flex;
+  gap: 40px;
+}
+
 .header-nav-link {
+  display: inline-block;
+  padding: 24px 0;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.02em;
 }
 
+.address-list {
+  display: inline-flex;
+  gap: 40px;
+}
 .address-link {
+  padding: 24px 0;
   line-height: 150%;
   letter-spacing: 0.02em;
   color: var(--cl-primary);
@@ -110,12 +186,14 @@ address {
 
 /* #region Logo*/
 .logo {
+  display: inline-flex;
   font-family: var(--secondary-font);
   font-size: 18px;
   font-weight: 700;
   line-height: 117%;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  padding: 1.5px 0px;
   color: var(--cl-accent);
 }
 
@@ -134,37 +212,94 @@ address {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.04em;
+  padding: 16px 32px;
+  border-radius: 4px;
   color: var(--cl-white);
   background-color: var(--cl-accent);
 }
 /* #endregion */
 
 /* #region Hero */
+.hero-container {
+  padding: 203px 331px;
+}
 .hero {
   background-color: var(--cl-secondary);
-  text-align: center;
   color: var(--cl-white);
+  text-align: center;
 }
+
 .hero-title {
   font-size: 56px;
   line-height: 107%;
   letter-spacing: 0.02em;
+  margin-bottom: 48px;
 }
+/* #endregion */
+
+/* #region About */
+.about-list {
+  --items: 4;
+}
+
+/* #endregion */
+
+/* #region Team */
+
+.team {
+  background-color: var(--cl-light);
+  --items: 4;
+}
+
+.team-title {
+  text-shadow: 0px 4px 4px rgba(var(--cl-black), 25%);
+}
+
+.team-item {
+  background-color: var(--cl-white);
+  text-align: center;
+  overflow: hidden;
+  border-radius: 0px 0px 4px 4px;
+  background: var(--WHITE, var(--cl-white));
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
+}
+
+.team-card-content {
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* #endregion */
+
+/* #region Portfolio */
+
+.portfolio-list {
+  --indent-row: 48px;
+}
+.portfolio-card-content {
+  border: 1px solid var(--cl-cornflower);
+  border-top: none;
+}
+
 /* #endregion */
 
 /* #region Footer */
 footer {
   background-color: var(--cl-secondary);
 }
+
+.footer-container {
+  padding: 100px 15px;
+  padding-right: 879px;
+}
+
+.footer-logo {
+  margin-bottom: 16px;
+}
+
 .footer-text {
   color: var(--cl-light);
 }
+
 /* #endregion */
-
-.team {
-  background-color: var(--cl-light);
-}
-
-.team-item {
-  background-color: var(--cl-white);
-}
