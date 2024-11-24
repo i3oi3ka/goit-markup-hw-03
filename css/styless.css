@@ -15,7 +15,7 @@
 
   /* card-set */
   --indent-col: 24px;
-  --indent-row: var(var(--col-gap));
+  --indent-row: var(--indent-col);
   --items: 3;
   /* Others */
 }
@@ -134,29 +134,32 @@ address {
 }
 
 .card-content {
-  padding: 32px 16px;
+  padding: 32px 0px;
 }
 /* #endregion */
 
 /* #region Header */
 .header-container {
+  border-bottom: 1px solid var(--cl-cornflower);
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-shrink: 0;
-  border-bottom: 1px solid var(--CORNFLOWER, #e7e9fc);
+  align-items: center;
 }
 
+.header-nav {
+  display: flex;
+  align-items: center;
+}
 .header-logo {
   margin-right: 76px;
 }
 .header-nav-list {
-  display: inline-flex;
+  display: flex;
   gap: 40px;
 }
 
 .header-nav-link {
-  display: inline-block;
+  display: inline-flex;
   padding: 24px 0;
   font-weight: 500;
   font-size: 16px;
@@ -165,7 +168,7 @@ address {
 }
 
 .address-list {
-  display: inline-flex;
+  display: flex;
   gap: 40px;
 }
 .address-link {
@@ -186,7 +189,7 @@ address {
 
 /* #region Logo*/
 .logo {
-  display: inline-flex;
+  display: inline-block;
   font-family: var(--secondary-font);
   font-size: 18px;
   font-weight: 700;
@@ -208,11 +211,13 @@ address {
 
 /* #region btn*/
 .btn {
+  display: block;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.04em;
   padding: 16px 32px;
+  border: none;
   border-radius: 4px;
   color: var(--cl-white);
   background-color: var(--cl-accent);
@@ -220,20 +225,33 @@ address {
 /* #endregion */
 
 /* #region Hero */
-.hero-container {
-  padding: 203px 331px;
-}
+
 .hero {
+  padding: 188px 0;
   background-color: var(--cl-secondary);
   color: var(--cl-white);
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   text-align: center;
 }
 
 .hero-title {
+  min-width: 169px;
+  max-width: 496px;
   font-size: 56px;
   line-height: 107%;
   letter-spacing: 0.02em;
   margin-bottom: 48px;
+}
+
+.btn-hero {
+  min-width: 169px;
+  height: 56px;
 }
 /* #endregion */
 
@@ -286,12 +304,8 @@ address {
 
 /* #region Footer */
 footer {
+  padding: 100px 0;
   background-color: var(--cl-secondary);
-}
-
-.footer-container {
-  padding: 100px 15px;
-  padding-right: 879px;
 }
 
 .footer-logo {
@@ -300,6 +314,7 @@ footer {
 
 .footer-text {
   color: var(--cl-light);
+  max-width: 264px;
 }
 
 /* #endregion */
